@@ -1,11 +1,19 @@
 <?php
-    function greet($name, $color) {
-        echo "<p>Hi, my name is $name and my favorite color is $color.</p>";
+    $names = array('Brad','John','Jane',"Meowsalot");
+
+    $counting = 0;
+
+    while($counting < count($names)) {
+        echo "<li>Hi, my name is $names[$counting].</li>";
+        $counting++;
     }
 
-    greet('John', 'blue');
-    greet('Jane', 'green');
+    $count = 1;
+
+    while($count <101) {
+        echo "<li>$count</li>";
+        $count++;
+    }
 ?>
 
-<h1><?php bloginfo('name'); ?></h1> <!-- name comes from the WordPress dashboard under Settings > Site Title -->
-<p><?php bloginfo('description'); ?></p> <!-- description comes from the WordPress dashboard under Settings > Tagline -->
+<p>Hi, my name is <?php echo $names[3]?>.</p>
