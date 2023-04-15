@@ -1,4 +1,4 @@
-<footer class="site-footer">
+      <footer class="site-footer">
       <div class="site-footer__inner container container--narrow">
         <div class="group">
           <div class="site-footer__col-one">
@@ -58,8 +58,6 @@
         </div>
       </div>
     </footer>
-        
-        <?php wp_footer(); ?>
-
+      <?php wp_footer(); ?>
     </body>
 </html>
