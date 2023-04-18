@@ -14,4 +14,9 @@ add_action('wp_enqueue_scripts','university_files'); //This function is looking 
                                                      //the second is the function that you create. Be sure to actually create this function
                                                      //as in the example above.
 
+function university_features() {
+    add_theme_support('title-tag');
+}
+
+add_action('after_setup_theme', 'university_features');
 ?>
