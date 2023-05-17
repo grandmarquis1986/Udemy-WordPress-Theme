@@ -18,5 +18,9 @@ function university_features() {
     add_theme_support('title-tag');
 }
 
+//The following three register_nav_menu functions were from Lesson 20
+//register_nav_menu('headerMenuLocation', 'Header Menu Location'); //This function adds the "Menu" option in the WordPress Admin area under Appearance
+//register_nav_menu('footerLocationOne', 'Footer Location One');
+//register_nav_menu('footerLocationTwo', 'Footer Location Two');
 add_action('after_setup_theme', 'university_features');
 ?>

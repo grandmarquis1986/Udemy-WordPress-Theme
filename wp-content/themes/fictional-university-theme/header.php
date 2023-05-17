@@ -6,7 +6,7 @@
         <?php wp_head(); ?>
     </head>
     <body <?php body_class(); ?>>
-    <header class="site-header">
+    <header class="site-header">git 
       <div class="container">
         <h1 class="school-logo-text float-left">
           <a href="<?php echo site_url(); ?>"><strong>Fictional</strong> University</a>
@@ -15,6 +15,12 @@
         <i class="site-header__menu-trigger fa fa-bars" aria-hidden="true"></i>
         <div class="site-header__menu group">
           <nav class="main-navigation">
+            <?php /*
+            wp_nav_menu(array(
+              'theme_location' => 'headerMenuLocation'
+            )); */
+            //This section is for the dynamic menus generated in the WordPress admin area
+            ?>            
             <ul>
               <li><a href="<?php echo site_url('about-us'); ?>">About Us</a></li>
               <li><a href="#">Programs</a></li>
