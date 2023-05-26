@@ -9,9 +9,20 @@ get_header();
     style="background-image: url(<?php echo get_theme_file_uri('/images/ocean.jpg'); ?>)">
   </div>
   <div class="page-banner__content container container--narrow">
-    <h1 class="page-banner__title">Welcome to our blog!</h1>
+    <h1 class="page-banner__title">
+        <?php 
+            //the_archive_title(); This function negates the need for the 'if' statement, but it is not as fine-tuned.
+            if (is_category()) {
+                single_cat_title();
+            }
+            if (is_author()) {
+                echo 'Posts by '; the_author();
+            }
+        
+        ?>
+    </h1>
     <div class="page-banner__intro">
-      <p>Keep up with out latest news.</p>
+      <p><?php the_archive_description(); ?></p>
     </div>
   </div>
 </div>
