@@ -11,13 +11,13 @@ get_header();
   <div class="page-banner__content container container--narrow">
     <h1 class="page-banner__title">
         <?php 
-            //the_archive_title(); This function negates the need for the 'if' statement, but it is not as fine-tuned.
-            if (is_category()) {
-                single_cat_title();
-            }
-            if (is_author()) {
-                echo 'Posts by '; the_author();
-            }
+            the_archive_title(); //This function negates the need for the 'if' statement, but it is not as fine-tuned.
+            //if (is_category()) {
+            //    single_cat_title();
+            //}
+            //if (is_author()) {
+            //    echo 'Posts by '; the_author();
+            //}
         
         ?>
     </h1>

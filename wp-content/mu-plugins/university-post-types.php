@@ -1,6 +1,8 @@
 <?php 
 function university_post_types() {
     register_post_type('event', array(
+        'rewrite' => array('slug' => 'events'), //this rewrites the slug for his post type
+        'has_archive' => true,
         'public' => true,
         'show_in_rest' => true,
         'labels' => array(
