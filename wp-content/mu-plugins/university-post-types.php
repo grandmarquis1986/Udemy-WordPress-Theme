@@ -1,6 +1,7 @@
 <?php 
 function university_post_types() {
     register_post_type('event', array(
+        'supports' => array('title', 'editor', 'excerpt'), //here editor is referring to the modern WP editor
         'rewrite' => array('slug' => 'events'), //this rewrites the slug for his post type
         'has_archive' => true,
         'public' => true,
