@@ -18,10 +18,22 @@
             <h2 class="headline headline--small-plus t-center">Upcoming Events</h2>
 
             <?php
+            $today = date('Ymd');
             $homePageEvents = new WP_Query(
                 array(
-                    'post_per_page' => 2,
+                    'post_per_page' => -1, //-1 means: give me all posts that meet these conditions
                     'post_type' => 'event',
+                    'meta_key' => 'event_date',
+                    'orderby' => 'meta_value_num',
+                    'order' => 'ASC',
+                    'meta_query' => array(
+                        array(
+                            'key' => 'event_date',
+                            'compare' => '>=',
+                            'value' => $today,
+                            'type' => 'numeric'
+                        )
+                    )
                 )
             );
 
