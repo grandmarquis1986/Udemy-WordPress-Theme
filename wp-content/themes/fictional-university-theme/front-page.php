@@ -21,12 +21,12 @@
             $today = date('Ymd');
             $homePageEvents = new WP_Query(
                 array(
-                    'post_per_page' => -1, //-1 means: give me all posts that meet these conditions
+                    'post_per_page' => 2, //-1 means: give me all posts that meet these conditions
                     'post_type' => 'event',
                     'meta_key' => 'event_date',
                     'orderby' => 'meta_value_num',
                     'order' => 'ASC',
-                    'meta_query' => array(
+                    'meta_query' => array( //this section is used to filter out events that have already happened
                         array(
                             'key' => 'event_date',
                             'compare' => '>=',
