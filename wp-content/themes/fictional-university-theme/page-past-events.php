@@ -18,8 +18,31 @@ get_header();
 
 <div class="container container--narrow page-section">
     <?php
-    while (have_posts()) {
-        the_post(); ?>
+
+    $today = date('Ymd');
+    $pastEvents = new WP_Query(
+        array(
+            'paged' => get_query_var('paged', 1), //the second argument is the default argument
+            //if it can't find the first argument
+            //get_query_var gets information about the current URL
+            'post_type' => 'event',
+            'meta_key' => 'event_date',
+            'orderby' => 'meta_value_num',
+            'order' => 'ASC',
+            'meta_query' => array(
+                //this section is used to filter out events that haven't already happened
+                array(
+                    'key' => 'event_date',
+                    'compare' => '<', //this was changed from the >= used on the events page
+                    'value' => $today,
+                    'type' => 'numeric'
+                )
+            )
+        )
+    );
+
+    while ($pastEvents->have_posts()) {
+        $pastEvents->the_post(); ?>
         <div class="event-summary">
         <a class="event-summary__date t-center" href="#">
                         <span class="event-summary__month"><?php 
@@ -38,13 +61,11 @@ get_header();
         </div>
     <?php }
 
-    echo paginate_links();
+    echo paginate_links(array(
+        'total' => $pastEvents->max_num_pages
+    ));
 
     ?>
-
-    <hr class="section-break">
-
-    <p>Looking for a recap of past events? <a href="<?php echo site_url('/past-events'); ?>">Check out our past events archive.</a></p>
 </div>
 
 <?php
