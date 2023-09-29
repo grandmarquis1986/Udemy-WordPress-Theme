@@ -38,6 +38,24 @@ function university_post_types()
         ),
         'menu_icon' => 'dashicons-awards'
     ));
+
+    //Professor Post Type
+    register_post_type('professor', array(
+        'supports' => array('title', 'editor'),
+        //here editor is referring to the modern WP editor
+        //this rewrites the slug for his post type
+        //'has_archive' => true, - YOU DON'T NEED TO CHANGE THIS TO FALSE BECAUSE THE DEFAULT IS FALSE
+        'public' => true,
+        'show_in_rest' => true,
+        'labels' => array(
+            'name' => 'Professors',
+            'add_new_item' => 'Add New Professor',
+            'edit_item' => 'Edit Professor',
+            'all_items' => 'All Professors',
+            'singular_name' => 'Professor'
+        ),
+        'menu_icon' => 'dashicons-welcome-learn-more'
+    ));
 }
 add_action('init', 'university_post_types') //this function initializes a new function: university_post_types()
 
