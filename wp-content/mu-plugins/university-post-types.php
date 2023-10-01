@@ -41,7 +41,7 @@ function university_post_types()
 
     //Professor Post Type
     register_post_type('professor', array(
-        'supports' => array('title', 'editor'),
+        'supports' => array('title', 'editor','thumbnail'),
         //here editor is referring to the modern WP editor
         //this rewrites the slug for his post type
         //'has_archive' => true, - YOU DON'T NEED TO CHANGE THIS TO FALSE BECAUSE THE DEFAULT IS FALSE

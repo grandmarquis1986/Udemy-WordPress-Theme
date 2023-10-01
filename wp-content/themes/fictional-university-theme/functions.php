@@ -16,6 +16,9 @@ add_action('wp_enqueue_scripts','university_files'); //This function is looking 
 
 function university_features() {
     add_theme_support('title-tag');
+    add_theme_support('post-thumbnails'); //This enables Featured Images on Blog post types
+    add_image_size('professorLandscape', 400, 260, true);
+    add_image_size('professorPortrait', 480, 650, true);
 }
 
 //The following three register_nav_menu functions were from Lesson 20
