@@ -3,21 +3,11 @@
 get_header();
 
 while (have_posts()) {
-  the_post(); ?>
-
-  <div class="page-banner">
-    <div class="page-banner__bg-image"
-      style="background-image: url(<?php echo get_theme_file_uri('/images/ocean.jpg'); ?>)">
-    </div>
-    <div class="page-banner__content container container--narrow">
-      <h1 class="page-banner__title">
-        <?php the_title(); ?>
-      </h1>
-      <div class="page-banner__intro">
-        <p>DON'T FORGET TO REPLACE ME LATER</p>
-      </div>
-    </div>
-  </div>
+  the_post(); 
+  pageBanner(array(
+    'photo' => 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.up.com%2Fcs%2Fgroups%2Fpublic%2F%40uprr%2F%40corprel%2Fdocuments%2Fdigitalmedia%2Fimg_up_media-4014-150-cele.jpg&f=1&nofb=1&ipt=4af2ead29cbf570207a7ed9269eece6e64f8cf3c202cefb6d7fd6aab14d9525e&ipo=images',
+  ));
+  ?>  
 
   <div class="container container--narrow page-section">
     <?php
