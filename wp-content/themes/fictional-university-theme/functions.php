@@ -2,13 +2,13 @@
 
 function pageBanner($args = NULL) //making $args = NULL will allow the arguments to be optional
 {
-    if(!$args['title']) {
+    if(!isset($args['title'])) {
         $args['title'] = get_the_title();
     }
-    if(!$args['subtitle']) {
+    if(!isset($args['subtitle'])) {
         $args['subtitle'] = get_field('page_banner_subtitle');
     }
-    if(!$args['photo']) {
+    if(!isset($args['photo'])) {
         if(get_field('page_banner_background_image')) { //if there is a page_banner_background_image it will default to true
             $args['photo'] = get_field('page_banner_background_image')['sizes']['pageBanner'];
         } else {
