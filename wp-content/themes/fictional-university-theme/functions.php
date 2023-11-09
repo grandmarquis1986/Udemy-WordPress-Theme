@@ -9,7 +9,8 @@ function pageBanner($args = NULL) //making $args = NULL will allow the arguments
         $args['subtitle'] = get_field('page_banner_subtitle');
     }
     if(!isset($args['photo'])) {
-        if(get_field('page_banner_background_image')) { //if there is a page_banner_background_image it will default to true
+        if(get_field('page_banner_background_image') AND !is_archive() AND !is_home()) { 
+            //for the line above his one, if there is a page_banner_background_image it will default to true
             $args['photo'] = get_field('page_banner_background_image')['sizes']['pageBanner'];
         } else {
             $args['photo'] = get_theme_file_uri('/images/ocean.jpg');
