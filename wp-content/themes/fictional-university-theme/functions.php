@@ -92,6 +92,13 @@ function university_adjust_queries($query)
         );
     }
 }
-add_action('pre_get_posts', 'university_adjust_queries') //the first argument says when the action should happen; the second argument is what to do
+add_action('pre_get_posts', 'university_adjust_queries'); //the first argument says when the action should happen; the second argument is what to do
+
+function universityMapKey($api) {
+    $api['key'] = 'AIzaSyB-hPA3jZhq-yUA8_IXiYhc4m1WTZ1_i-I';
+    return $api;
+}
+
+add_filter('acf/fields/google_map/api','universityMapKey');
 
     ?>
