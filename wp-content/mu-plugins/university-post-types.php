@@ -1,6 +1,25 @@
 <?php
 function university_post_types()
 {
+    //Campus Post Type
+    register_post_type('campus', array(
+        'supports' => array('title', 'editor', 'excerpt'),
+        //here editor is referring to the modern WP editor
+        'rewrite' => array('slug' => 'campuses'),
+        //this rewrites the slug for his post type
+        'has_archive' => true,
+        'public' => true,
+        'show_in_rest' => true,
+        'labels' => array(
+            'name' => 'Campuses',
+            'add_new_item' => 'Add New Campus',
+            'edit_item' => 'Edit Campus',
+            'all_items' => 'All Campuses',
+            'singular_name' => 'Campus'
+        ),
+        'menu_icon' => 'dashicons-location-alt'
+    ));
+
     //Event Post Type
     register_post_type('event', array(
         'supports' => array('title', 'editor', 'excerpt'),
