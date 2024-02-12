@@ -18,23 +18,25 @@ while (have_posts()) {
                 </span>
             </p>
         </div>
-
         <div class="generic-content">
             <?php the_content(); ?>
         </div>
 
+        <?php
+        $mapLocation = get_field('map_location');
+        ?>
+
         <div class="acf-map">
-            <?php
-            $mapLocation = get_field('map_location');
-            ?>
+
             <div class="marker" data-lat="<?php echo $mapLocation['lat'] ?>" data-lng="<?php echo $mapLocation['lng'] ?>">
                 <h3>
                     <?php the_title(); ?>
                 </h3>
                 <?php echo $mapLocation['address']; ?>
             </div>
-
         </div>
+
+        <!-- </div> -->
 
         <?php
 
@@ -66,9 +68,7 @@ while (have_posts()) {
                 $relatedPrograms->the_post(); ?>
                 <li>
                     <a href="<?php the_permalink(); ?>">
-
                         <?php the_title(); ?>
-
                     </a>
                 </li>
             <?php }
@@ -122,6 +122,7 @@ you're going to want to use this function to reset the global post object back t
 
         ?>
 
+    </div>
     </div>
 
 <?php }
