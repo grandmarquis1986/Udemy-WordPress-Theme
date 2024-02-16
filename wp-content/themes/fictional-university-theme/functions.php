@@ -92,6 +92,12 @@ function university_adjust_queries($query)
         )
         );
     }
+
+    //the below if query was generated in lesson 57: Final Campus Details
+    //this query ensures that ALL campuses show up in the map on the archive-campus.php page
+    if (!is_admin() and is_post_type_archive('campus') and $query->is_main_query()) {
+        $query->set('posts_per_page', -1); // -1 is used to indicate that ALL posts should display instead of a certain number
+    }
 }
 add_action('pre_get_posts', 'university_adjust_queries'); //the first argument says when the action should happen; the second argument is what to do
 
